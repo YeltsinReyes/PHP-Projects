@@ -1,6 +1,6 @@
 <?php
 
-
+//Creates Destiny Armor Class
 class Armor
 {
     
