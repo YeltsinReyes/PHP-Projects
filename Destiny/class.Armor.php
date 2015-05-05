@@ -1,6 +1,6 @@
 <?php
 
-//Creates Destiny Armor Class
+
 class Armor
 {
     
@@ -16,6 +16,7 @@ class Armor
     public $disc;
     public $intel;
     public $id;
+    public $tid;
     
     
     
@@ -63,7 +64,7 @@ class Armor
 		light = :light,
 		intel = :intel,
 		disc = :disc,
-		str = :strength
+		str = :str
 	    WHERE vid = :id";
         
         $stmt = $this->conn->prepare($query);
@@ -125,9 +126,9 @@ ORDER BY  aname ASC LIMIT {$from_record_num}, {$records_per_page}";
     function readOne()
     {
         
-        $query = "SELECT aname, atype, aclass, def, light, intel, disc, str
-   	    FROM " . $this->table_name . "
-	    WHERE vid = ?  LIMIT 0,1";
+        $query = "SELECT aname, atype, aclass, def, light, intel, disc, str,aid
+   	    FROM " . $this->table_name . ", DS_ARMOR_TYPE
+	    WHERE vid = ?  AND ATYPE = NAME LIMIT 0,1";
         
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
@@ -143,6 +144,7 @@ ORDER BY  aname ASC LIMIT {$from_record_num}, {$records_per_page}";
         $this->intel    = $row['intel'];
         $this->disc     = $row['disc'];
         $this->strength = $row['str'];
+	$this->tid      = $row['aid'];
         
     }
     
