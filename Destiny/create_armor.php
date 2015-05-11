@@ -91,7 +91,7 @@ echo "</select>";
      </tr>
      <tr><td></td>
 	<td>
-	   <button type='submit' class="button add">Create</button>
+	   <button type='submit' id="addComment" class="button add">Create</button>
 	</td>
      </tr>
   </table>

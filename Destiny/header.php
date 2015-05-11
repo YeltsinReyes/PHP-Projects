@@ -170,12 +170,13 @@ $(document).ready(function(){
 $("#msgbox").hide();
 $("#addComment").click(function(){
 
-	$.post('process.php',{name:$("#name").val(),comment:$("#comment").val()
+	$.post('create_armor.php',{name:$("#name").val(),atype:$("#atype").val(),ctype:$("#ctype").val(),def:$("#def").val(),
+light:$("light").val(), intel:$("#intel").val(), disc:$("disc").val(), str:$("str").val()
 
 	},
 	function(response){
 
-	$("#msgbox #msg").html("Comment Added Successfully!");
+	$("#msgbox #msg").html("Armor Added Successfully!");
 	$("#msgbox").slideUp().slideDown("normal");
 	}
 	);
