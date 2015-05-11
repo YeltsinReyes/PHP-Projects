@@ -92,7 +92,7 @@ class Armor
     function delete()
     {
         
-        $query = "DELETE FROM " . $this->table_name . "WHERE vid = ?";
+        $query = "DELETE FROM " . $this->table_name . " WHERE vid = ?";
         
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);

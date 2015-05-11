@@ -77,8 +77,8 @@ if ($num > 0) {
         echo "<td>{$str}</td>";
         echo "<td>";
         echo "<a href='update_armor.php?id={$vid}' class='button left'>Edit</a>";
-        echo "<a href='delete-id={$vid}' class='button left'>Delete</a>";
-        echo "</td>";
+        echo "<a delete-id='{$vid}' class='button left delete-object'>Delete</a>";
+	   echo "</td>";
         echo "</tr>";
     }
     
@@ -96,9 +96,10 @@ $(document).on('click', '.delete-object', function(){
  
     if (q == true){
  
-        $.post('delete_product.php', {
+        $.post('delete_armor.php', {
             object_id: id
         }, function(data){
+		 alert('Successfully deleted.');
             location.reload();
         }).fail(function() {
             alert('Unable to delete.');
